@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1A69C10C1C90C3D800F9717A /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A69C10B1C90C3D800F9717A /* CryptoSwift.framework */; };
+		2734C6A81D88001F00BFF9F1 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66725DAB1C59202E00FC32F4 /* CryptoSwift.framework */; };
+		2734C6A91D88002900BFF9F1 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66725DAB1C59202E00FC32F4 /* CryptoSwift.framework */; };
+		2734C6AA1D88003000BFF9F1 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66725DAB1C59202E00FC32F4 /* CryptoSwift.framework */; };
 		279D63A21AD07FFF0024E2BC /* JWT.h in Headers */ = {isa = PBXBuildFile; fileRef = 279D63A11AD07FFF0024E2BC /* JWT.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		279D63A81AD07FFF0024E2BC /* JWT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 279D639C1AD07FFF0024E2BC /* JWT.framework */; };
 		279D63AF1AD07FFF0024E2BC /* JWTTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279D63AE1AD07FFF0024E2BC /* JWTTests.swift */; };
@@ -15,6 +17,22 @@
 		520A71181C469F010005C709 /* Claims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520A71141C469F010005C709 /* Claims.swift */; };
 		520A71191C469F010005C709 /* Decode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520A71151C469F010005C709 /* Decode.swift */; };
 		520A711A1C469F010005C709 /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520A71161C469F010005C709 /* JWT.swift */; };
+		CD9B62171C7753D8005D4844 /* Claims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520A71141C469F010005C709 /* Claims.swift */; };
+		CD9B62181C7753D8005D4844 /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520A71161C469F010005C709 /* JWT.swift */; };
+		CD9B62191C7753D8005D4844 /* Decode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520A71151C469F010005C709 /* Decode.swift */; };
+		CD9B621A1C7753D8005D4844 /* Base64.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520A71131C469F010005C709 /* Base64.swift */; };
+		CD9B621E1C7753D8005D4844 /* JWT.h in Headers */ = {isa = PBXBuildFile; fileRef = 279D63A11AD07FFF0024E2BC /* JWT.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CD9B62291C7753EC005D4844 /* Claims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520A71141C469F010005C709 /* Claims.swift */; };
+		CD9B622A1C7753EC005D4844 /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520A71161C469F010005C709 /* JWT.swift */; };
+		CD9B622B1C7753EC005D4844 /* Decode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520A71151C469F010005C709 /* Decode.swift */; };
+		CD9B622C1C7753EC005D4844 /* Base64.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520A71131C469F010005C709 /* Base64.swift */; };
+		CD9B62301C7753EC005D4844 /* JWT.h in Headers */ = {isa = PBXBuildFile; fileRef = 279D63A11AD07FFF0024E2BC /* JWT.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CD9B623B1C7753FB005D4844 /* Claims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520A71141C469F010005C709 /* Claims.swift */; };
+		CD9B623C1C7753FB005D4844 /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520A71161C469F010005C709 /* JWT.swift */; };
+		CD9B623D1C7753FB005D4844 /* Decode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520A71151C469F010005C709 /* Decode.swift */; };
+		CD9B623E1C7753FB005D4844 /* Base64.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520A71131C469F010005C709 /* Base64.swift */; };
+		CD9B62421C7753FB005D4844 /* JWT.h in Headers */ = {isa = PBXBuildFile; fileRef = 279D63A11AD07FFF0024E2BC /* JWT.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CD9B62891C7758BB005D4844 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66725DAB1C59202E00FC32F4 /* CryptoSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,27 +50,6 @@
 			remoteGlobalIDString = 754BE45519693E190098E6F3;
 			remoteInfo = "CryptoSwift iOS";
 		};
-		66725DAC1C59202E00FC32F4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 66725DA21C59202E00FC32F4 /* CryptoSwift.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 5596BDBB1BC8F220007E38D5;
-			remoteInfo = "CryptoSwift watchOS";
-		};
-		66725DAE1C59202E00FC32F4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 66725DA21C59202E00FC32F4 /* CryptoSwift.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 75D614BF1BD844F2001358B2;
-			remoteInfo = "CryptoSwift tvOS";
-		};
-		66725DB01C59202E00FC32F4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 66725DA21C59202E00FC32F4 /* CryptoSwift.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 75DF77721BC8EB59006E9520;
-			remoteInfo = "CryptoSwift OSX";
-		};
 		66725DB21C59202E00FC32F4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 66725DA21C59202E00FC32F4 /* CryptoSwift.xcodeproj */;
@@ -60,12 +57,12 @@
 			remoteGlobalIDString = 754BE46019693E190098E6F3;
 			remoteInfo = CryptoSwiftTests;
 		};
-		66725DB41C59203B00FC32F4 /* PBXContainerItemProxy */ = {
+		CD9B628A1C7758CA005D4844 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 66725DA21C59202E00FC32F4 /* CryptoSwift.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 75DF77461BC8EB59006E9520;
-			remoteInfo = "CryptoSwift OSX";
+			remoteGlobalIDString = 754BE45419693E190098E6F3;
+			remoteInfo = "CryptoSwift iOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -84,6 +81,9 @@
 		520A711B1C469F440005C709 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		540942F3614C41E3827F2013 /* Pods_JWT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JWT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		66725DA21C59202E00FC32F4 /* CryptoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoSwift.xcodeproj; path = Carthage/Checkouts/CryptoSwift/CryptoSwift.xcodeproj; sourceTree = "<group>"; };
+		CD9B62231C7753D8005D4844 /* JWT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JWT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD9B62351C7753EC005D4844 /* JWT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JWT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD9B62471C7753FB005D4844 /* JWT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JWT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE8198B6E30BA6B8F8125FA7 /* Pods_JWTTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JWTTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -92,7 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A69C10C1C90C3D800F9717A /* CryptoSwift.framework in Frameworks */,
+				2734C6A81D88001F00BFF9F1 /* CryptoSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +101,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				279D63A81AD07FFF0024E2BC /* JWT.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD9B621B1C7753D8005D4844 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD9B62891C7758BB005D4844 /* CryptoSwift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD9B622D1C7753EC005D4844 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2734C6A91D88002900BFF9F1 /* CryptoSwift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD9B623F1C7753FB005D4844 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2734C6AA1D88003000BFF9F1 /* CryptoSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,6 +151,9 @@
 			children = (
 				279D639C1AD07FFF0024E2BC /* JWT.framework */,
 				279D63A71AD07FFF0024E2BC /* JWTTests.xctest */,
+				CD9B62231C7753D8005D4844 /* JWT.framework */,
+				CD9B62351C7753EC005D4844 /* JWT.framework */,
+				CD9B62471C7753FB005D4844 /* JWT.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -180,10 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				66725DAB1C59202E00FC32F4 /* CryptoSwift.framework */,
-				66725DAD1C59202E00FC32F4 /* CryptoSwift.framework */,
-				66725DAF1C59202E00FC32F4 /* CryptoSwift.framework */,
-				66725DB11C59202E00FC32F4 /* CryptoSwift.framework */,
-				66725DB31C59202E00FC32F4 /* CryptoSwiftTests.xctest */,
+				66725DB31C59202E00FC32F4 /* Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -209,12 +233,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CD9B621D1C7753D8005D4844 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD9B621E1C7753D8005D4844 /* JWT.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD9B622F1C7753EC005D4844 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD9B62301C7753EC005D4844 /* JWT.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD9B62411C7753FB005D4844 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD9B62421C7753FB005D4844 /* JWT.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		279D639B1AD07FFF0024E2BC /* JWT */ = {
+		279D639B1AD07FFF0024E2BC /* JWT-OSX */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 279D63B21AD07FFF0024E2BC /* Build configuration list for PBXNativeTarget "JWT" */;
+			buildConfigurationList = 279D63B21AD07FFF0024E2BC /* Build configuration list for PBXNativeTarget "JWT-OSX" */;
 			buildPhases = (
 				279D63971AD07FFF0024E2BC /* Sources */,
 				279D63981AD07FFF0024E2BC /* Frameworks */,
@@ -224,9 +272,8 @@
 			buildRules = (
 			);
 			dependencies = (
-				66725DB51C59203B00FC32F4 /* PBXTargetDependency */,
 			);
-			name = JWT;
+			name = "JWT-OSX";
 			productName = JWT;
 			productReference = 279D639C1AD07FFF0024E2BC /* JWT.framework */;
 			productType = "com.apple.product-type.framework";
@@ -248,6 +295,61 @@
 			productName = JWTTests;
 			productReference = 279D63A71AD07FFF0024E2BC /* JWTTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CD9B62131C7753D8005D4844 /* JWT-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD9B62201C7753D8005D4844 /* Build configuration list for PBXNativeTarget "JWT-iOS" */;
+			buildPhases = (
+				CD9B62161C7753D8005D4844 /* Sources */,
+				CD9B621B1C7753D8005D4844 /* Frameworks */,
+				CD9B621D1C7753D8005D4844 /* Headers */,
+				CD9B621F1C7753D8005D4844 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CD9B628B1C7758CA005D4844 /* PBXTargetDependency */,
+			);
+			name = "JWT-iOS";
+			productName = JWT;
+			productReference = CD9B62231C7753D8005D4844 /* JWT.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		CD9B62251C7753EC005D4844 /* JWT-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD9B62321C7753EC005D4844 /* Build configuration list for PBXNativeTarget "JWT-tvOS" */;
+			buildPhases = (
+				CD9B62281C7753EC005D4844 /* Sources */,
+				CD9B622D1C7753EC005D4844 /* Frameworks */,
+				CD9B622F1C7753EC005D4844 /* Headers */,
+				CD9B62311C7753EC005D4844 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "JWT-tvOS";
+			productName = JWT;
+			productReference = CD9B62351C7753EC005D4844 /* JWT.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		CD9B62371C7753FB005D4844 /* JWT-watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD9B62441C7753FB005D4844 /* Build configuration list for PBXNativeTarget "JWT-watchOS" */;
+			buildPhases = (
+				CD9B623A1C7753FB005D4844 /* Sources */,
+				CD9B623F1C7753FB005D4844 /* Frameworks */,
+				CD9B62411C7753FB005D4844 /* Headers */,
+				CD9B62431C7753FB005D4844 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "JWT-watchOS";
+			productName = JWT;
+			productReference = CD9B62471C7753FB005D4844 /* JWT.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -286,7 +388,10 @@
 			);
 			projectRoot = "";
 			targets = (
-				279D639B1AD07FFF0024E2BC /* JWT */,
+				279D639B1AD07FFF0024E2BC /* JWT-OSX */,
+				CD9B62131C7753D8005D4844 /* JWT-iOS */,
+				CD9B62251C7753EC005D4844 /* JWT-tvOS */,
+				CD9B62371C7753FB005D4844 /* JWT-watchOS */,
 				279D63A61AD07FFF0024E2BC /* JWTTests */,
 			);
 		};
@@ -300,31 +405,10 @@
 			remoteRef = 66725DAA1C59202E00FC32F4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		66725DAD1C59202E00FC32F4 /* CryptoSwift.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CryptoSwift.framework;
-			remoteRef = 66725DAC1C59202E00FC32F4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		66725DAF1C59202E00FC32F4 /* CryptoSwift.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CryptoSwift.framework;
-			remoteRef = 66725DAE1C59202E00FC32F4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		66725DB11C59202E00FC32F4 /* CryptoSwift.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CryptoSwift.framework;
-			remoteRef = 66725DB01C59202E00FC32F4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		66725DB31C59202E00FC32F4 /* CryptoSwiftTests.xctest */ = {
+		66725DB31C59202E00FC32F4 /* Tests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = CryptoSwiftTests.xctest;
+			path = Tests.xctest;
 			remoteRef = 66725DB21C59202E00FC32F4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -339,6 +423,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		66725DA11C591D9800FC32F4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD9B621F1C7753D8005D4844 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD9B62311C7753EC005D4844 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD9B62431C7753FB005D4844 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -367,18 +472,51 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CD9B62161C7753D8005D4844 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD9B62171C7753D8005D4844 /* Claims.swift in Sources */,
+				CD9B62181C7753D8005D4844 /* JWT.swift in Sources */,
+				CD9B62191C7753D8005D4844 /* Decode.swift in Sources */,
+				CD9B621A1C7753D8005D4844 /* Base64.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD9B62281C7753EC005D4844 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD9B62291C7753EC005D4844 /* Claims.swift in Sources */,
+				CD9B622A1C7753EC005D4844 /* JWT.swift in Sources */,
+				CD9B622B1C7753EC005D4844 /* Decode.swift in Sources */,
+				CD9B622C1C7753EC005D4844 /* Base64.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD9B623A1C7753FB005D4844 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD9B623B1C7753FB005D4844 /* Claims.swift in Sources */,
+				CD9B623C1C7753FB005D4844 /* JWT.swift in Sources */,
+				CD9B623D1C7753FB005D4844 /* Decode.swift in Sources */,
+				CD9B623E1C7753FB005D4844 /* Base64.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
 		279D63AA1AD07FFF0024E2BC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 279D639B1AD07FFF0024E2BC /* JWT */;
+			target = 279D639B1AD07FFF0024E2BC /* JWT-OSX */;
 			targetProxy = 279D63A91AD07FFF0024E2BC /* PBXContainerItemProxy */;
 		};
-		66725DB51C59203B00FC32F4 /* PBXTargetDependency */ = {
+		CD9B628B1C7758CA005D4844 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "CryptoSwift OSX";
-			targetProxy = 66725DB41C59203B00FC32F4 /* PBXContainerItemProxy */;
+			name = "CryptoSwift iOS";
+			targetProxy = CD9B628A1C7758CA005D4844 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -422,8 +560,10 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
+				PRODUCT_NAME = "$(PROJECT_NAME)";
+				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -461,7 +601,9 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
+				PRODUCT_NAME = "$(PROJECT_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -470,7 +612,6 @@
 		279D63B31AD07FFF0024E2BC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -482,21 +623,16 @@
 				);
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = JWT/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				INSTALL_PATH = "@rpath";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocode.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		279D63B41AD07FFF0024E2BC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -508,11 +644,9 @@
 				);
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = JWT/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				INSTALL_PATH = "@rpath";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocode.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -552,6 +686,119 @@
 			};
 			name = Release;
 		};
+		CD9B62211C7753D8005D4844 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = JWT/Info.plist;
+				INSTALL_PATH = "@rpath";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocode.$(PRODUCT_NAME:rfc1034identifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CD9B62221C7753D8005D4844 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = JWT/Info.plist;
+				INSTALL_PATH = "@rpath";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocode.$(PRODUCT_NAME:rfc1034identifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CD9B62331C7753EC005D4844 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = JWT/Info.plist;
+				INSTALL_PATH = "@rpath";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocode.$(PRODUCT_NAME:rfc1034identifier)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		CD9B62341C7753EC005D4844 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = JWT/Info.plist;
+				INSTALL_PATH = "@rpath";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocode.$(PRODUCT_NAME:rfc1034identifier)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CD9B62451C7753FB005D4844 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = JWT/Info.plist;
+				INSTALL_PATH = "@rpath";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocode.$(PRODUCT_NAME:rfc1034identifier)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		CD9B62461C7753FB005D4844 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = JWT/Info.plist;
+				INSTALL_PATH = "@rpath";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocode.$(PRODUCT_NAME:rfc1034identifier)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -564,7 +811,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		279D63B21AD07FFF0024E2BC /* Build configuration list for PBXNativeTarget "JWT" */ = {
+		279D63B21AD07FFF0024E2BC /* Build configuration list for PBXNativeTarget "JWT-OSX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				279D63B31AD07FFF0024E2BC /* Debug */,
@@ -578,6 +825,33 @@
 			buildConfigurations = (
 				279D63B61AD07FFF0024E2BC /* Debug */,
 				279D63B71AD07FFF0024E2BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CD9B62201C7753D8005D4844 /* Build configuration list for PBXNativeTarget "JWT-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD9B62211C7753D8005D4844 /* Debug */,
+				CD9B62221C7753D8005D4844 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CD9B62321C7753EC005D4844 /* Build configuration list for PBXNativeTarget "JWT-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD9B62331C7753EC005D4844 /* Debug */,
+				CD9B62341C7753EC005D4844 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CD9B62441C7753FB005D4844 /* Build configuration list for PBXNativeTarget "JWT-watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD9B62451C7753FB005D4844 /* Debug */,
+				CD9B62461C7753FB005D4844 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
