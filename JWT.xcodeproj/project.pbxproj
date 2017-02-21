@@ -10,6 +10,18 @@
 		2734C6A81D88001F00BFF9F1 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66725DAB1C59202E00FC32F4 /* CryptoSwift.framework */; };
 		2734C6A91D88002900BFF9F1 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66725DAB1C59202E00FC32F4 /* CryptoSwift.framework */; };
 		2734C6AA1D88003000BFF9F1 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66725DAB1C59202E00FC32F4 /* CryptoSwift.framework */; };
+		277794051DF221F800573F3E /* ClaimSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277794041DF221F800573F3E /* ClaimSet.swift */; };
+		277794061DF221F800573F3E /* ClaimSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277794041DF221F800573F3E /* ClaimSet.swift */; };
+		277794071DF221F800573F3E /* ClaimSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277794041DF221F800573F3E /* ClaimSet.swift */; };
+		277794081DF221F800573F3E /* ClaimSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277794041DF221F800573F3E /* ClaimSet.swift */; };
+		2777940B1DF22BE400573F3E /* JOSEHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2777940A1DF22BE400573F3E /* JOSEHeader.swift */; };
+		2777940C1DF22BE400573F3E /* JOSEHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2777940A1DF22BE400573F3E /* JOSEHeader.swift */; };
+		2777940D1DF22BE400573F3E /* JOSEHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2777940A1DF22BE400573F3E /* JOSEHeader.swift */; };
+		2777940E1DF22BE400573F3E /* JOSEHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2777940A1DF22BE400573F3E /* JOSEHeader.swift */; };
+		277794101DF22D0D00573F3E /* Encode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2777940F1DF22D0D00573F3E /* Encode.swift */; };
+		277794111DF22D0D00573F3E /* Encode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2777940F1DF22D0D00573F3E /* Encode.swift */; };
+		277794121DF22D0D00573F3E /* Encode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2777940F1DF22D0D00573F3E /* Encode.swift */; };
+		277794131DF22D0D00573F3E /* Encode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2777940F1DF22D0D00573F3E /* Encode.swift */; };
 		279D63A21AD07FFF0024E2BC /* JWT.h in Headers */ = {isa = PBXBuildFile; fileRef = 279D63A11AD07FFF0024E2BC /* JWT.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		279D63A81AD07FFF0024E2BC /* JWT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 279D639C1AD07FFF0024E2BC /* JWT.framework */; };
 		279D63AF1AD07FFF0024E2BC /* JWTTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279D63AE1AD07FFF0024E2BC /* JWTTests.swift */; };
@@ -68,6 +80,9 @@
 
 /* Begin PBXFileReference section */
 		1A69C10B1C90C3D800F9717A /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
+		277794041DF221F800573F3E /* ClaimSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClaimSet.swift; sourceTree = "<group>"; };
+		2777940A1DF22BE400573F3E /* JOSEHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JOSEHeader.swift; sourceTree = "<group>"; };
+		2777940F1DF22D0D00573F3E /* Encode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Encode.swift; sourceTree = "<group>"; };
 		279D639C1AD07FFF0024E2BC /* JWT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JWT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		279D63A01AD07FFF0024E2BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		279D63A11AD07FFF0024E2BC /* JWT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JWT.h; sourceTree = "<group>"; };
@@ -137,8 +152,8 @@
 				66725DA21C59202E00FC32F4 /* CryptoSwift.xcodeproj */,
 				520A711B1C469F440005C709 /* Package.swift */,
 				520A71121C469F010005C709 /* Sources */,
-				279D639E1AD07FFF0024E2BC /* JWT */,
-				279D63AB1AD07FFF0024E2BC /* JWTTests */,
+				279D639E1AD07FFF0024E2BC /* Sources */,
+				279D63AB1AD07FFF0024E2BC /* Tests */,
 				279D639D1AD07FFF0024E2BC /* Products */,
 				AC8AE547FDAF3DD80EB4DB2F /* Frameworks */,
 			);
@@ -158,12 +173,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		279D639E1AD07FFF0024E2BC /* JWT */ = {
+		279D639E1AD07FFF0024E2BC /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				279D63A11AD07FFF0024E2BC /* JWT.h */,
 				279D639F1AD07FFF0024E2BC /* Supporting Files */,
 			);
+			name = Sources;
 			path = JWT;
 			sourceTree = "<group>";
 		};
@@ -175,13 +191,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		279D63AB1AD07FFF0024E2BC /* JWTTests */ = {
+		279D63AB1AD07FFF0024E2BC /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				279D63AE1AD07FFF0024E2BC /* JWTTests.swift */,
 				279D63AC1AD07FFF0024E2BC /* Supporting Files */,
 			);
-			path = JWTTests;
+			name = Tests;
+			path = Tests/JWTTests;
 			sourceTree = "<group>";
 		};
 		279D63AC1AD07FFF0024E2BC /* Supporting Files */ = {
@@ -195,9 +212,12 @@
 		520A71121C469F010005C709 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				277794041DF221F800573F3E /* ClaimSet.swift */,
+				2777940A1DF22BE400573F3E /* JOSEHeader.swift */,
 				520A71131C469F010005C709 /* Base64.swift */,
 				520A71141C469F010005C709 /* Claims.swift */,
 				520A71151C469F010005C709 /* Decode.swift */,
+				2777940F1DF22D0D00573F3E /* Encode.swift */,
 				520A71161C469F010005C709 /* JWT.swift */,
 			);
 			path = Sources;
@@ -359,7 +379,7 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = Cocode;
 				TargetAttributes = {
 					279D639B1AD07FFF0024E2BC = {
@@ -460,6 +480,9 @@
 				520A71181C469F010005C709 /* Claims.swift in Sources */,
 				520A711A1C469F010005C709 /* JWT.swift in Sources */,
 				520A71191C469F010005C709 /* Decode.swift in Sources */,
+				277794101DF22D0D00573F3E /* Encode.swift in Sources */,
+				2777940B1DF22BE400573F3E /* JOSEHeader.swift in Sources */,
+				277794051DF221F800573F3E /* ClaimSet.swift in Sources */,
 				520A71171C469F010005C709 /* Base64.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -479,6 +502,9 @@
 				CD9B62171C7753D8005D4844 /* Claims.swift in Sources */,
 				CD9B62181C7753D8005D4844 /* JWT.swift in Sources */,
 				CD9B62191C7753D8005D4844 /* Decode.swift in Sources */,
+				277794111DF22D0D00573F3E /* Encode.swift in Sources */,
+				2777940C1DF22BE400573F3E /* JOSEHeader.swift in Sources */,
+				277794061DF221F800573F3E /* ClaimSet.swift in Sources */,
 				CD9B621A1C7753D8005D4844 /* Base64.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -490,6 +516,9 @@
 				CD9B62291C7753EC005D4844 /* Claims.swift in Sources */,
 				CD9B622A1C7753EC005D4844 /* JWT.swift in Sources */,
 				CD9B622B1C7753EC005D4844 /* Decode.swift in Sources */,
+				277794121DF22D0D00573F3E /* Encode.swift in Sources */,
+				2777940D1DF22BE400573F3E /* JOSEHeader.swift in Sources */,
+				277794071DF221F800573F3E /* ClaimSet.swift in Sources */,
 				CD9B622C1C7753EC005D4844 /* Base64.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -501,6 +530,9 @@
 				CD9B623B1C7753FB005D4844 /* Claims.swift in Sources */,
 				CD9B623C1C7753FB005D4844 /* JWT.swift in Sources */,
 				CD9B623D1C7753FB005D4844 /* Decode.swift in Sources */,
+				277794131DF22D0D00573F3E /* Encode.swift in Sources */,
+				2777940E1DF22BE400573F3E /* JOSEHeader.swift in Sources */,
+				277794081DF221F800573F3E /* ClaimSet.swift in Sources */,
 				CD9B623E1C7753FB005D4844 /* Base64.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -534,8 +566,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -545,6 +579,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -582,8 +617,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -593,6 +630,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -603,6 +641,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(PROJECT_NAME)";
 				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -664,7 +703,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = JWTTests/Info.plist;
+				INFOPLIST_FILE = Tests/JWTTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocode.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -679,7 +718,7 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = JWTTests/Info.plist;
+				INFOPLIST_FILE = Tests/JWTTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocode.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -689,7 +728,7 @@
 		CD9B62211C7753D8005D4844 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -708,7 +747,7 @@
 		CD9B62221C7753D8005D4844 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -728,6 +767,7 @@
 		CD9B62331C7753EC005D4844 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -746,6 +786,7 @@
 		CD9B62341C7753EC005D4844 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -765,6 +806,7 @@
 		CD9B62451C7753FB005D4844 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -783,6 +825,7 @@
 		CD9B62461C7753FB005D4844 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;

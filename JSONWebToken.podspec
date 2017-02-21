@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = 'JSONWebToken'
-  spec.version = '2.0.1'
+  spec.version = '2.1.0'
   spec.summary = 'Swift library for JSON Web Tokens (JWT).'
   spec.homepage = 'https://github.com/kylef/JSONWebToken.swift'
   spec.license = { :type => 'BSD', :file => 'LICENSE' }
@@ -12,6 +12,6 @@ Pod::Spec.new do |spec|
   spec.tvos.deployment_target = '9.0'
   spec.watchos.deployment_target = '2.0'
   spec.requires_arc = true
-  spec.dependency 'CryptoSwift', '~> 0.6.0'
+  spec.dependency 'CryptoSwift', '~> 0.6.1'
   spec.module_name = 'JWT'
 end
