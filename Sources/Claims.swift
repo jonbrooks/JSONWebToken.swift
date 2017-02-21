@@ -1,52 +1,30 @@
 import Foundation
 
-func validateClaims(_ payload:Payload, audience:String?, issuer:String?) -> InvalidToken? {
-  return validateIssuer(payload, issuer: issuer) ?? validateAudience(payload, audience: audience) ??
-    validateDate(payload, key: "exp", comparison: .orderedAscending, failure: .expiredSignature, decodeError: "Expiration time claim (exp) must be an integer") ??
-    validateDate(payload, key: "nbf", comparison: .orderedDescending, failure: .immatureSignature, decodeError: "Not before claim (nbf) must be an integer") ??
-    validateDate(payload, key: "iat", comparison: .orderedDescending, failure: .invalidIssuedAt, decodeError: "Issued at claim (iat) must be an integer")
-}
-
-func validateAudience(_ payload:Payload, audience:String?) -> InvalidToken? {
-  if let audience = audience {
-    if let aud = payload["aud"] as? [String] {
-      if !aud.contains(audience) {
-        return .invalidAudience
-      }
-    } else if let aud = payload["aud"] as? String {
-      if aud != audience {
-        return .invalidAudience
-      }
-    } else {
-      return .decodeError("Invalid audience claim, must be a string or an array of strings")
-    }
+func validateDate(_ payload: Payload, key: String, comparison: ComparisonResult, failure: InvalidToken, decodeError: String) throws {
+  if payload[key] == nil {
+    return
   }
 
-  return nil
-}
-
-func validateIssuer(_ payload:Payload, issuer:String?) -> InvalidToken? {
-  if let issuer = issuer {
-    if let iss = payload["iss"] as? String {
-      if iss != issuer {
-        return .invalidIssuer
-      }
-    } else {
-      return .invalidIssuer
-    }
+  guard let date = extractDate(payload: payload, key: key) else {
+    throw InvalidToken.decodeError(decodeError)
   }
 
-  return nil
+  if date.compare(Date()) == comparison {
+    throw failure
+  }
 }
 
-func validateDate(_ payload:Payload, key:String, comparison:ComparisonResult, failure:InvalidToken, decodeError:String) -> InvalidToken? {
-  if let timestamp = payload[key] as? TimeInterval ?? (payload[key] as? NSString)?.doubleValue as TimeInterval? {
-    let date = Date(timeIntervalSince1970: timestamp)
-    if date.compare(Date()) == comparison {
-      return failure
-    }
-  } else if payload[key] != nil {
-    return .decodeError(decodeError)
+fileprivate func extractDate(payload: Payload, key: String) -> Date? {
+  if let timestamp = payload[key] as? TimeInterval {
+    return Date(timeIntervalSince1970: timestamp)
+  }
+
+  if let timestamp = payload[key] as? Int {
+    return Date(timeIntervalSince1970: Double(timestamp))
+  }
+
+  if let timestampString = payload[key] as? String, let timestamp = Double(timestampString) {
+    return Date(timeIntervalSince1970: timestamp)
   }
 
   return nil

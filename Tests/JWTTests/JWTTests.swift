@@ -2,12 +2,20 @@ import Foundation
 import XCTest
 import JWT
 
-class JWTEncodeTests : XCTestCase {
+class EncodeTests: XCTestCase {
   func testEncodingJWT() {
     let payload = ["name": "Kyle"] as Payload
     let jwt = JWT.encode(payload, algorithm: .hs256("secret".data(using: .utf8)!))
-    let fixture = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiS3lsZSJ9.zxm7xcp1eZtZhp4t-nlw09ATQnnFKIiSN83uG8u6cAg"
-    XCTAssertEqual(jwt, fixture)
+
+    let expected = [
+      // { "alg": "HS256", "typ": "JWT" }
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiS3lsZSJ9.zxm7xcp1eZtZhp4t-nlw09ATQnnFKIiSN83uG8u6cAg",
+
+      // {  "typ": "JWT", "alg": "HS256" }
+      "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiS3lsZSJ9.4tCpoxfyfjbUyLjm9_zu-r52Vxn6bFq9kp6Rt9xMs4A",
+    ]
+
+    XCTAssertTrue(expected.contains(jwt))
   }
 
   func testEncodingWithBuilder() {
@@ -17,22 +25,22 @@ class JWTEncodeTests : XCTestCase {
     }
 
     assertSuccess(try JWT.decode(jwt, algorithm: algorithm)) { payload in
-      XCTAssertEqual(payload as NSDictionary, ["iss": "fuller.li"])
+      XCTAssertEqual(payload as! [String: String], ["iss": "fuller.li"])
     }
   }
 }
 
-class JWTPayloadBuilder : XCTestCase {
+class PayloadTests: XCTestCase {
   func testIssuer() {
-    JWT.encode(.none) { builder in
-       builder.issuer = "fuller.li"
+    _ = JWT.encode(.none) { builder in
+      builder.issuer = "fuller.li"
       XCTAssertEqual(builder.issuer, "fuller.li")
       XCTAssertEqual(builder["iss"] as? String, "fuller.li")
     }
   }
 
   func testAudience() {
-    JWT.encode(.none) { builder in
+    _ = JWT.encode(.none) { builder in
       builder.audience = "cocoapods"
       XCTAssertEqual(builder.audience, "cocoapods")
       XCTAssertEqual(builder["aud"] as? String, "cocoapods")
@@ -40,7 +48,7 @@ class JWTPayloadBuilder : XCTestCase {
   }
 
   func testExpiration() {
-    JWT.encode(.none) { builder in
+    _ = JWT.encode(.none) { builder in
       let date = Date(timeIntervalSince1970: Date().timeIntervalSince1970)
       builder.expiration = date
       XCTAssertEqual(builder.expiration, date)
@@ -49,7 +57,7 @@ class JWTPayloadBuilder : XCTestCase {
   }
 
   func testNotBefore() {
-    JWT.encode(.none) { builder in
+    _ = JWT.encode(.none) { builder in
       let date = Date(timeIntervalSince1970: Date().timeIntervalSince1970)
       builder.notBefore = date
       XCTAssertEqual(builder.notBefore, date)
@@ -58,7 +66,7 @@ class JWTPayloadBuilder : XCTestCase {
   }
 
   func testIssuedAt() {
-    JWT.encode(.none) { builder in
+    _ = JWT.encode(.none) { builder in
       let date = Date(timeIntervalSince1970: Date().timeIntervalSince1970)
       builder.issuedAt = date
       XCTAssertEqual(builder.issuedAt, date)
@@ -67,19 +75,26 @@ class JWTPayloadBuilder : XCTestCase {
   }
 
   func testCustomAttributes() {
-    JWT.encode(.none) { builder in
+    _ = JWT.encode(.none) { builder in
       builder["user"] = "kyle"
       XCTAssertEqual(builder["user"] as? String, "kyle")
     }
   }
 }
 
-class JWTDecodeTests : XCTestCase {
+class DecodeTests: XCTestCase {
+  func testDecodingValidJWTAsClaimSet() throws {
+    let jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiS3lsZSJ9.zxm7xcp1eZtZhp4t-nlw09ATQnnFKIiSN83uG8u6cAg"
+
+    let claims: ClaimSet = try JWT.decode(jwt, algorithm: .hs256("secret".data(using: .utf8)!))
+    XCTAssertEqual(claims["name"] as? String, "Kyle")
+  }
+
   func testDecodingValidJWT() {
     let jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiS3lsZSJ9.zxm7xcp1eZtZhp4t-nlw09ATQnnFKIiSN83uG8u6cAg"
 
     assertSuccess(try JWT.decode(jwt, algorithm: .hs256("secret".data(using: .utf8)!))) { payload in
-      XCTAssertEqual(payload as NSDictionary, ["name": "Kyle"])
+      XCTAssertEqual(payload as! [String: String], ["name": "Kyle"])
     }
   }
 
@@ -91,26 +106,26 @@ class JWTDecodeTests : XCTestCase {
 
   func testDisablingVerify() {
     let jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.e30.2_8pWJfyPup0YwOXK7g9Dn0cF1E3pdn299t4hSeJy5w"
-    assertSuccess(try decode(jwt, algorithm: .none, verify:false, issuer:"fuller.li"))
+    assertSuccess(try decode(jwt, algorithm: .none, verify: false, issuer: "fuller.li"))
   }
 
   // MARK: Issuer claim
 
   func testSuccessfulIssuerValidation() {
     let jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJmdWxsZXIubGkifQ.d7B7PAQcz1E6oNhrlxmHxHXHgg39_k7X7wWeahl8kSQ"
-    assertSuccess(try decode(jwt, algorithm: .hs256("secret".data(using: .utf8)!), issuer:"fuller.li")) { payload in
-      XCTAssertEqual(payload as NSDictionary, ["iss": "fuller.li"])
+    assertSuccess(try decode(jwt, algorithm: .hs256("secret".data(using: .utf8)!), issuer: "fuller.li")) { payload in
+      XCTAssertEqual(payload as! [String: String], ["iss": "fuller.li"])
     }
   }
 
   func testIncorrectIssuerValidation() {
     let jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJmdWxsZXIubGkifQ.wOhJ9_6lx-3JGJPmJmtFCDI3kt7uMAMmhHIslti7ryI"
-    assertFailure(try decode(jwt, algorithm: .hs256("secret".data(using: .utf8)!), issuer:"querykit.org"))
+    assertFailure(try decode(jwt, algorithm: .hs256("secret".data(using: .utf8)!), issuer: "querykit.org"))
   }
 
   func testMissingIssuerValidation() {
     let jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.e30.2_8pWJfyPup0YwOXK7g9Dn0cF1E3pdn299t4hSeJy5w"
-    assertFailure(try decode(jwt, algorithm: .hs256("secret".data(using: .utf8)!), issuer:"fuller.li"))
+    assertFailure(try decode(jwt, algorithm: .hs256("secret".data(using: .utf8)!), issuer: "fuller.li"))
   }
 
   // MARK: Expiration claim
@@ -129,15 +144,15 @@ class JWTDecodeTests : XCTestCase {
     // If this just started failing, hello 2024!
     let jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MjgxODg0OTF9.EW7k-8Mvnv0GpvOKJalFRLoCB3a3xGG3i7hAZZXNAz0"
     assertSuccess(try decode(jwt, algorithm: .hs256("secret".data(using: .utf8)!))) { payload in
-      XCTAssertEqual(payload as NSDictionary, ["exp": 1728188491])
+      XCTAssertEqual(payload as! [String: Int], ["exp": 1728188491])
     }
   }
-  
+
   func testUnexpiredClaimString() {
     // If this just started failing, hello 2024!
     let jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOiIxNzI4MTg4NDkxIn0.y4w7lNLrfRRPzuNUfM-ZvPkoOtrTU_d8ZVYasLdZGpk"
     assertSuccess(try decode(jwt, algorithm: .hs256("secret".data(using: .utf8)!))) { payload in
-      XCTAssertEqual(payload as NSDictionary, ["exp": "1728188491"])
+      XCTAssertEqual(payload as! [String: String], ["exp": "1728188491"])
     }
   }
 
@@ -146,14 +161,14 @@ class JWTDecodeTests : XCTestCase {
   func testNotBeforeClaim() {
     let jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE0MjgxODk3MjB9.jFT0nXAJvEwyG6R7CMJlzNJb7FtZGv30QRZpYam5cvs"
     assertSuccess(try decode(jwt, algorithm: .hs256("secret".data(using: .utf8)!))) { payload in
-      XCTAssertEqual(payload as NSDictionary, ["nbf": 1428189720])
+      XCTAssertEqual(payload as! [String: Int], ["nbf": 1428189720])
     }
   }
-  
+
   func testNotBeforeClaimString() {
     let jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOiIxNDI4MTg5NzIwIn0.qZsj36irdmIAeXv6YazWDSFbpuxHtEh4Deof5YTpnVI"
     assertSuccess(try decode(jwt, algorithm: .hs256("secret".data(using: .utf8)!))) { payload in
-      XCTAssertEqual(payload as NSDictionary, ["nbf": "1428189720"])
+      XCTAssertEqual(payload as! [String: String], ["nbf": "1428189720"])
     }
   }
 
@@ -173,14 +188,14 @@ class JWTDecodeTests : XCTestCase {
   func testIssuedAtClaimInThePast() {
     let jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0MjgxODk3MjB9.I_5qjRcCUZVQdABLwG82CSuu2relSdIyJOyvXWUAJh4"
     assertSuccess(try decode(jwt, algorithm: .hs256("secret".data(using: .utf8)!))) { payload in
-      XCTAssertEqual(payload as NSDictionary, ["iat": 1428189720])
+      XCTAssertEqual(payload as! [String: Int], ["iat": 1428189720])
     }
   }
-  
+
   func testIssuedAtClaimInThePastString() {
     let jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOiIxNDI4MTg5NzIwIn0.M8veWtsY52oBwi7LRKzvNnzhjK0QBS8Su1r0atlns2k"
     assertSuccess(try decode(jwt, algorithm: .hs256("secret".data(using: .utf8)!))) { payload in
-      XCTAssertEqual(payload as NSDictionary, ["iat": "1428189720"])
+      XCTAssertEqual(payload as! [String: String], ["iat": "1428189720"])
     }
   }
 
@@ -200,34 +215,35 @@ class JWTDecodeTests : XCTestCase {
 
   func testAudiencesClaim() {
     let jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsibWF4aW5lIiwia2F0aWUiXX0.-PKvdNLCClrWG7CvesHP6PB0-vxu-_IZcsYhJxBy5JM"
-    assertSuccess(try decode(jwt, algorithm: .hs256("secret".data(using: .utf8)!), audience:"maxine")) { payload in
-      XCTAssertEqual(payload as NSDictionary, ["aud": ["maxine", "katie"]])
+    assertSuccess(try decode(jwt, algorithm: .hs256("secret".data(using: .utf8)!), audience: "maxine")) { payload in
+      XCTAssertEqual(payload.count, 1)
+      XCTAssertEqual(payload["aud"] as! [String], ["maxine", "katie"])
     }
   }
 
   func testAudienceClaim() {
     let jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJreWxlIn0.dpgH4JOwueReaBoanLSxsGTc7AjKUvo7_M1sAfy_xVE"
-    assertSuccess(try decode(jwt, algorithm: .hs256("secret".data(using: .utf8)!), audience:"kyle")) { payload in
-      XCTAssertEqual(payload as NSDictionary, ["aud": "kyle"])
+    assertSuccess(try decode(jwt, algorithm: .hs256("secret".data(using: .utf8)!), audience: "kyle")) { payload in
+      XCTAssertEqual(payload as! [String: String], ["aud": "kyle"])
     }
   }
 
   func testMismatchAudienceClaim() {
     let jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJreWxlIn0.VEB_n06pTSLlTXPFkc46ARADJ9HXNUBUPo3VhL9RDe4" // kyle
-    assertFailure(try decode(jwt, algorithm: .hs256("secret".data(using: .utf8)!), audience:"maxine"))
+    assertFailure(try decode(jwt, algorithm: .hs256("secret".data(using: .utf8)!), audience: "maxine"))
   }
 
   func testMissingAudienceClaim() {
     let jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.e30.2_8pWJfyPup0YwOXK7g9Dn0cF1E3pdn299t4hSeJy5w"
-    assertFailure(try decode(jwt, algorithm: .hs256("secret".data(using: .utf8)!), audience:"kyle"))
+    assertFailure(try decode(jwt, algorithm: .hs256("secret".data(using: .utf8)!), audience: "kyle"))
   }
 
   // MARK: Signature verification
 
   func testNoneAlgorithm() {
     let jwt = "eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJ0ZXN0IjoiaW5nIn0."
-    assertSuccess(try decode(jwt, algorithm:.none)) { payload in
-      XCTAssertEqual(payload as NSDictionary, ["test": "ing"])
+    assertSuccess(try decode(jwt, algorithm: .none)) { payload in
+      XCTAssertEqual(payload as! [String: String], ["test": "ing"])
     }
   }
 
@@ -244,21 +260,21 @@ class JWTDecodeTests : XCTestCase {
   func testHS384Algorithm() {
     let jwt = "eyJhbGciOiJIUzM4NCIsInR5cCI6IkpXVCJ9.eyJzb21lIjoicGF5bG9hZCJ9.lddiriKLoo42qXduMhCTKZ5Lo3njXxOC92uXyvbLyYKzbq4CVVQOb3MpDwnI19u4"
     assertSuccess(try decode(jwt, algorithm: .hs384("secret".data(using: .utf8)!))) { payload in
-      XCTAssertEqual(payload as NSDictionary, ["some": "payload"])
+      XCTAssertEqual(payload as! [String: String], ["some": "payload"])
     }
   }
 
   func testHS512Algorithm() {
     let jwt = "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzb21lIjoicGF5bG9hZCJ9.WTzLzFO079PduJiFIyzrOah54YaM8qoxH9fLMQoQhKtw3_fMGjImIOokijDkXVbyfBqhMo2GCNu4w9v7UXvnpA"
     assertSuccess(try decode(jwt, algorithm: .hs512("secret".data(using: .utf8)!))) { payload in
-      XCTAssertEqual(payload as NSDictionary, ["some": "payload"])
+      XCTAssertEqual(payload as! [String: String], ["some": "payload"])
     }
   }
 }
 
 // MARK: Helpers
 
-func assertSuccess(_ decoder: @autoclosure () throws -> Payload, closure:((Payload) -> ())? = nil) {
+func assertSuccess(_ decoder: @autoclosure () throws -> Payload, closure: ((Payload) -> Void)? = nil) {
   do {
     let payload = try decoder()
     closure?(payload)
@@ -267,7 +283,7 @@ func assertSuccess(_ decoder: @autoclosure () throws -> Payload, closure:((Paylo
   }
 }
 
-func assertFailure(_ decoder: @autoclosure () throws -> Payload, closure:((InvalidToken) -> ())? = nil) {
+func assertFailure(_ decoder: @autoclosure () throws -> Payload, closure: ((InvalidToken) -> Void)? = nil) {
   do {
     _ = try decoder()
     XCTFail("Decoding succeeded, expected a failure.")
@@ -278,7 +294,7 @@ func assertFailure(_ decoder: @autoclosure () throws -> Payload, closure:((Inval
   }
 }
 
-func assertDecodeError(_ decoder:@autoclosure () throws -> Payload, error:String) {
+func assertDecodeError(_ decoder: @autoclosure () throws -> Payload, error: String) {
   assertFailure(try decoder()) { failure in
     switch failure {
     case .decodeError(let decodeError):

@@ -1,5 +1,31 @@
 # JSON Web Token Changelog
 
+## 2.1.0
+
+### Enhancements
+
+- Introduces a new `ClaimSet` structure. The structure can be returned from
+  `decode` providing you convenience accessors. `encode` will now accept a
+  `ClaimSet`.
+
+  `ClaimSet` provides methods to manually validate individual claims.
+
+  ```swift
+  try claims.validateAudience("example.com")
+  try claims.validateIssuer("fuller.li")
+  try claims.validateExpiary()
+  try claims.validateNotBefore()
+  try claims.validateIssuedAt()
+  ```
+
+
+## 2.0.2
+
+### Enhancements
+
+- Adds support for Linux.
+
+
 ## 2.0.1
 
 This release adds support for Swift 3.0.
